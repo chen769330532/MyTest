@@ -1,6 +1,6 @@
 package com.example.demo.TestAop;
 
-public class Test1 {
+public class TestEnum {
 	
 	public static void main(String[] args) {
 		Week monday = Week.MONDAY;
