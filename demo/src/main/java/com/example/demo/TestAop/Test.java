@@ -26,5 +26,12 @@ public class Test {
 		return "这是我的第二个aop";
 	}
 	
+	@PostMapping("/aop2")
+	public String testObject(@RequestBody Object o) {
+		System.out.println(o.toString());
+		StringBuilder sb = new StringBuilder(o.toString());
+		System.out.println(sb);
+		return "这是我的第三个模拟流程";
+	}
 	
 }

@@ -1,4 +1,4 @@
-package com.example.demo.TestAop;
+package com.example.demo.testEnum;
 
 public enum WeekRest implements Week{
 	

@@ -1,16 +1,17 @@
-package com.example.demo.TestAop;
+package com.example.demo.testEnum;
 
 public enum WeekWork implements Week{
 	MONDAY("星期一","周一"),TUESDAY("星期二"),WEDNESDAY("星期三","周三"),THURSDAY("星期四"),FRIDAY("星期五","周五");
 	
 	private String value;
 	
-	private String value1;
-	
 	private WeekWork(String value) {
 		this.value = value;
 	}
+
+	private String value1;
 	
+
 	private WeekWork(String value,String value1) {
 		this.value=value;
 		this.value1=value1;
