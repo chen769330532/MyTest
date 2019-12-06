@@ -20,7 +20,7 @@ public class TestLambda {
 		FunctionEntity entity = new FunctionEntity();
 		entity.setId("这是我的id");
 		entity.setName("这是我的名字");
-		f4.add(entity);
+//		f4.add(entity);
 
 		Function5 f5 = s -> s.getName();
 		String add = f5.add(entity);
