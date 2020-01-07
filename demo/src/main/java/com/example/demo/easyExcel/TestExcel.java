@@ -3,7 +3,9 @@ package com.example.demo.easyExcel;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.alibaba.excel.EasyExcelFactory;
@@ -11,18 +13,21 @@ import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.metadata.Sheet;
 
 public class TestExcel {
-	
+
 	public static void main(String[] args) throws Exception {
-		
+
 		String path = "D:/easyExcel";
 		File file = new File(path);
 		if(!file.exists()) {
 			file.mkdir();
 		}
-		
-		OutputStream out = new FileOutputStream(path+"/123.xlsx");
+
+		Date date = new Date();
+		String datePath = new SimpleDateFormat("yyyy-MM-dd").format(date);
+
+		OutputStream out = new FileOutputStream(path+"/"+datePath+".xlsx");
 		ExcelWriter writer = EasyExcelFactory.getWriter(out);
-		
+
 		Sheet sheet = new Sheet(1, 0, WriteModel.class);
 		sheet.setSheetName("我的第一个excel导出");
 		writer.write(sheetList(), sheet);
