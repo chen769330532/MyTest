@@ -8,7 +8,7 @@ public class Emp {
 	/**
 	 * 员工编号
 	 */
-	private String empNo;
+	private Integer empNo;
 	
 	/**
 	 * 员工姓名
@@ -23,7 +23,7 @@ public class Emp {
 	/**
 	 * 员工领导编号
 	 */
-	private String mgr;
+	private Integer mgr;
 	
 	/**
 	 * 入职日期
@@ -33,16 +33,16 @@ public class Emp {
 	/**
 	 * 工资
 	 */
-	private String sal;
+	private Double sal;
 	
 	/**
 	 * 奖金
 	 */
-	private String comm;
+	private Double comm;
 	
 	/**
 	 * 部门编号
 	 */
-	private String deptNo;
+	private Integer deptNo;
 	
 }

@@ -1,10 +1,10 @@
 package com.example.service;
 
-import java.util.List;
-
 import com.example.pojo.Dept;
 import com.example.pojo.Emp;
 import com.example.pojo.Salgrade;
+
+import java.util.List;
 
 public interface MysqlService {
 
@@ -14,4 +14,5 @@ public interface MysqlService {
 
 	List<Salgrade> salgrade();
 
+    List<Emp> job(String job);
 }

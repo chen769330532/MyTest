@@ -8,7 +8,7 @@ public class Dept {
 	/**
 	 * 部门编号
 	 */
-	private String deptNo;
+	private Integer deptNo;
 	
 	/**
 	 * 部门名称

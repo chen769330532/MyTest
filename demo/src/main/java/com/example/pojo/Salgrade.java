@@ -8,15 +8,15 @@ public class Salgrade {
 	/**
 	 * 等级
 	 */
-	private String grade;
+	private Integer grade;
 	
 	/**
 	 * 最低工资
 	 */
-	private String losal;
+	private Double losal;
 	
 	/**
 	 * 最高工资
 	 */
-	private String hisal;
+	private Double hisal;
 }
