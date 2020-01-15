@@ -10,4 +10,6 @@ public class Response<T> {
 	private String status;
 	
 	private T data;
+
+	private int total;
 }

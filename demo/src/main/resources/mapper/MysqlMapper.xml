@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.MysqlMapper">
-    <resultMap id="Job" type="com.example.pojo.Emp">
+    <resultMap id="emp" type="com.example.pojo.Emp">
         <result column="EMPNO" property="empNo" jdbcType="INTEGER"/>
         <result column="ENAME" property="eName" jdbcType="VARCHAR"/>
         <result column="JOB" property="job" jdbcType="VARCHAR"/>
@@ -14,7 +14,7 @@
         <result column="DEPTNO" property="deptNo" jdbcType="INTEGER"/>
     </resultMap>
 
-    <select id="job" resultMap="Job">
+    <select id="job" resultMap="emp">
         select empno,ename,deptno from emp
         <where>
             job = #{job}

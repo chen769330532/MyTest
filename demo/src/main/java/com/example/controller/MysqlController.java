@@ -37,6 +37,7 @@ public class MysqlController {
             response.setStatus(ServicesStatus.SERVCIE_CALL_FAILURE);
             return response;
         }
+        response.setTotal(list.size());
         response.setData(list);
         response.setMsg(ServicesMsg.SELECT_SUCCESS);
         response.setStatus(ServicesStatus.SERVICE_CALL_SUCCESS);
@@ -55,6 +56,7 @@ public class MysqlController {
             response.setStatus(ServicesStatus.SERVCIE_CALL_FAILURE);
             return response;
         }
+        response.setTotal(list.size());
         response.setData(list);
         response.setMsg(ServicesMsg.SELECT_SUCCESS);
         response.setStatus(ServicesStatus.SERVICE_CALL_SUCCESS);
@@ -73,6 +75,7 @@ public class MysqlController {
             response.setStatus(ServicesStatus.SERVCIE_CALL_FAILURE);
             return response;
         }
+        response.setTotal(list.size());
         response.setData(list);
         response.setMsg(ServicesMsg.SELECT_SUCCESS);
         response.setStatus(ServicesStatus.SERVICE_CALL_SUCCESS);
@@ -91,6 +94,7 @@ public class MysqlController {
             response.setData(list);
             return response;
         }
+        response.setTotal(list.size());
         response.setStatus(ServicesStatus.SERVICE_CALL_SUCCESS);
         response.setMsg(ServicesMsg.SELECT_SUCCESS);
         response.setData(list);
