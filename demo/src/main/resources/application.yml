@@ -12,4 +12,13 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
 
+logging:
+  pattern:
+    console: "%d - %msg%n"
+  level:
+    com:  debug
+  file:
+    max-history: 30
+    max-size: 10MB
+    name: "/123.log"
 
