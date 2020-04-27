@@ -10,7 +10,11 @@ import com.example.service.MysqlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -22,6 +26,7 @@ public class MysqlController {
 
     @PostMapping("/test1")
     public String test1() {
+        System.out.println("测试MysqlController");
         return "测试MysqlController";
     }
 
@@ -82,8 +87,8 @@ public class MysqlController {
         return response;
     }
 
-    @PostMapping("/job")
-    public Response<List<Emp>> job(@RequestParam String job) {
+    @GetMapping("/job/{job}")
+    public Response<List<Emp>> job(@PathVariable String job) {
         List<Emp> list = new ArrayList<>();
         Response<List<Emp>> response = new Response<>();
         try {
@@ -99,6 +104,25 @@ public class MysqlController {
         response.setMsg(ServicesMsg.SELECT_SUCCESS);
         response.setData(list);
         return response;
+    }
+
+    @GetMapping("/returnCookies")
+    public String returnCookies(HttpServletResponse response,@RequestParam String name){
+        Cookie cookie = new Cookie("abc","123");
+        response.addCookie(cookie);
+        System.out.println("名字:"+name);
+        return "已经添加cookies";
+    }
+
+    @GetMapping("getCookies")
+    public HashMap<String,String> getCookies(HttpServletRequest request, @RequestParam String name){
+        Cookie[] cookies = request.getCookies();
+        HashMap<String,String> hs = new HashMap<>();
+        for (Cookie c:cookies){
+            hs.put(c.getName(),c.getValue());
+        }
+        System.out.println(hs.toString());
+        return hs;
     }
 
 }
