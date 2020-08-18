@@ -21,6 +21,7 @@ public class MysqlServiceImpl implements MysqlService {
 	@Override
 	public List<Dept> dept() {
 		List<Dept> list = mapper.dept();
+
 		return list;
 	}
 
