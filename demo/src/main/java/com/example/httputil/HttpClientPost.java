@@ -1,6 +1,5 @@
 package com.example.httputil;
 
-import kf.ats.plt.base.lang.TextUtil;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
@@ -10,6 +9,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -57,7 +57,7 @@ public class HttpClientPost {
             }
 
         }
-        if (TextUtil.isNotEmpty(body)) {
+        if (!StringUtils.isEmpty(body)) {
             StringEntity requestEntity = new StringEntity(body, "utf-8");
             requestEntity.setContentEncoding("UTF-8");
             httpPost.setEntity(requestEntity);
@@ -101,7 +101,7 @@ public class HttpClientPost {
 
             String key = entry.getKey();
             String value = entry.getValue();
-            if (TextUtil.isNotEmpty(value)) {
+            if (!StringUtils.isEmpty(value)) {
                 try {
                     value = URLEncoder.encode(value, "UTF-8");
                 } catch (UnsupportedEncodingException e) {
