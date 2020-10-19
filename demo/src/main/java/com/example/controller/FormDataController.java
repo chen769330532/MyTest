@@ -19,6 +19,7 @@ public class FormDataController {
     //form-data
     @PostMapping("/test")
     public String formDataTest(HttpServletRequest httpServletRequest) {
+        System.out.println(123123123);
         httpServletRequest.getParameter("map");
         String test="测试成功";
         return test;
