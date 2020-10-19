@@ -21,6 +21,7 @@ public class FormDataController {
     public String formDataTest(HttpServletRequest httpServletRequest) {
         httpServletRequest.getParameter("map");
         String test="测试成功";
+        System.out.println(111);
         return test;
     }
 }
