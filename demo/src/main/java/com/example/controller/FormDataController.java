@@ -1,10 +1,10 @@
 package com.example.controller;
 
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 /**
  * @author Chenjl
@@ -24,4 +24,6 @@ public class FormDataController {
         System.out.println(111);
         return test;
     }
+
+
 }
