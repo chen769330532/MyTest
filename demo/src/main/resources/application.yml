@@ -16,7 +16,7 @@ logging:
   pattern:
     console: "%d - %msg%n"
   level:
-    com: debug
+    com: info
   file:
     max-history: 30
     max-size: 10MB
