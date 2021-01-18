@@ -109,6 +109,7 @@ public class MysqlController {
     @GetMapping("/returnCookies")
     public String returnCookies(HttpServletResponse response,@RequestParam String name){
         Cookie cookie = new Cookie("abc","123");
+        cookie.setMaxAge(-1);
         response.addCookie(cookie);
         System.out.println("名字:"+name);
         return "已经添加cookies";
