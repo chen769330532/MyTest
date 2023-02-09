@@ -1,9 +1,12 @@
 package com.example.config;
 
+import com.example.dao.OrderMapper;
+import com.example.pojo.OrderTest;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -21,15 +24,23 @@ public class RabbitConsumer {
      * @param channel
      * @throws IOException
      */
-    @RabbitListener(queues = "normal_queue")
-    public void normalQueue(Long orderId, Message message, Channel channel) throws IOException {
-        log.info("正常队列收到消息时间为:{},收到的消息内容为:{}", LocalDateTime.now(), orderId);
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-    }
+//    @RabbitListener(queues = "normal_queue")
+//    public void normalQueue(Long orderId, Message message, Channel channel) throws IOException {
+//        log.info("正常队列收到消息时间为:{},收到的消息内容为:{}", LocalDateTime.now(), orderId);
+//        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+//    }
+
+    @Autowired
+    OrderMapper orderMapper;
 
     @RabbitListener(queues = "dead_queue")
     public void deadQueue(Long orderId, Message message, Channel channel) throws IOException {
         log.info("死信收到消息时间为:{},收到的消息内容为:{}", LocalDateTime.now(), orderId);
+        OrderTest orderTest = orderMapper.selectById(orderId);
+        if (orderTest.getOrderStatus()==0){
+            orderTest.setOrderStatus(2);
+            orderMapper.updateById(orderTest);
+        }
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 }
