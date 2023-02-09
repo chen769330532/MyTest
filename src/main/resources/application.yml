@@ -8,7 +8,19 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver  #最新版springboot整合的mysql中,原来的mysql驱动com.mysql.jdbc.Driver改成com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-
+  rabbitmq:
+    host: 1.12.250.116  #mq服务器ip,默认为localhost
+    port: 5672          #mq服务器port,默认为5672
+    username: test     #mq服务器username,默认为gust
+    password: test     #mq服务器password,默认为guest
+    virtual-host: /
+    #publisher-confirms: true
+    #消费消息的时候,就必须手动ack确认,不然消息永远还在队列中
+    listener:
+      simple:
+        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: manual
 
 mybatis-plus:
   configuration:
